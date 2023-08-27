@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADODemo.App", "ADODemo.App\ADODemo.App.csproj", "{0632F86C-4CED-41F2-AD45-D292463151CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADODemo.DAL", "ADODemo.DAL\ADODemo.DAL.csproj", "{3EB656B6-1353-4EDE-8302-1B0217448B33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADODemo.Models", "ADODemo.Models\ADODemo.Models.csproj", "{745F9679-97B3-4F62-A2B8-B957F783F014}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0632F86C-4CED-41F2-AD45-D292463151CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0632F86C-4CED-41F2-AD45-D292463151CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0632F86C-4CED-41F2-AD45-D292463151CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0632F86C-4CED-41F2-AD45-D292463151CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EB656B6-1353-4EDE-8302-1B0217448B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EB656B6-1353-4EDE-8302-1B0217448B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EB656B6-1353-4EDE-8302-1B0217448B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EB656B6-1353-4EDE-8302-1B0217448B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745F9679-97B3-4F62-A2B8-B957F783F014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745F9679-97B3-4F62-A2B8-B957F783F014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745F9679-97B3-4F62-A2B8-B957F783F014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745F9679-97B3-4F62-A2B8-B957F783F014}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
