@@ -5,7 +5,7 @@ using Npgsql;
 
 namespace ADODemo.DAL;
 
-public class DbContext
+public class DbContext : IData
 {
     private const string ConnectionString = "Host=localhost;Username=postgres;Password=1234;Database=accounts_db";
 
@@ -43,5 +43,35 @@ public class DbContext
         _db.Close();
 
         return roles;
+    }
+
+    public Role GetRoleById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<Account> GetAllAccounts()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Account GetAccountById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Account GetAccountByLogin(string login)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<User> GetAllUsers()
+    {
+        throw new NotImplementedException();
+    }
+
+    public User GetUserById(int id)
+    {
+        throw new NotImplementedException();
     }
 }

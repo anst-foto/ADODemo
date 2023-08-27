@@ -1,0 +1,77 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+
+package Models {
+    class Role {
+        + id : int
+        + name : string
+    }
+    
+    Role <--* Account
+    class Account {
+        + id : int
+        + login : string
+        + password : string
+        + role_id : int
+        + role : Role
+    }
+    
+    class User {
+        + id : int
+        + first_name : string
+        + last_name : string
+        + email : string
+    }
+}
+
+package DAL {
+    Role <--o IData
+    Account <--o IData
+    User <--o IData
+    interface IData {
+        + {abstract} GetAllRoles() : Role[]
+        + {abstract} GetRoleById(id : int) : Role
+        
+        + {abstract} GetAllAccounts() : Account[]
+        + {abstract} GetAccountById(id : int) : Account
+        + {abstract} GetAccountByLogin(login : string) : Account
+        
+        + {abstract} GetAllUsers() : User[]
+        + {abstract} GetUserById(id : int) : User
+    }
+    
+    IData <|.. DbContext
+    class DbContext {
+        + GetAllRoles() : Role[]
+        + GetRoleById(id : int) : Role
+                
+        + GetAllAccounts() : Account[]
+        + GetAccountById(id : int) : Account
+        + GetAccountByLogin(login : string) : Account
+                
+        + GetAllUsers() : User[]
+        + GetUserById(id : int) : User
+    }
+    
+    IData <|.. TestContext
+    class TestContext {
+        + GetAllRoles() : Role[]
+        + GetRoleById(id : int) : Role
+                        
+        + GetAllAccounts() : Account[]
+        + GetAccountById(id : int) : Account
+        + GetAccountByLogin(login : string) : Account
+                        
+        + GetAllUsers() : User[]
+        + GetUserById(id : int) : User
+    }
+}
+
+package App {
+    Role <-- Program
+    Account <-- Program
+    User <-- Program
+    IData <-- Program
+}
+
+@enduml

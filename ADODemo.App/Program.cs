@@ -1,6 +1,6 @@
 ﻿using ADODemo.DAL;
 
-var db = new DbContext();
+IData db = new TestContext();
 var roles = db.GetAllRoles();
 foreach (var role in roles)
 {
