@@ -35,13 +35,19 @@ INSERT INTO table_accounts (login, password, role_id) VALUES ('admin', '123', (S
 INSERT INTO table_users (first_name, last_name, email) VALUES ('admin', 'user', 'admin@mail.mail');
 
 CREATE PROCEDURE procedure_insert_user (IN login_arg TEXT, IN password_arg TEXT, IN role_name_arg TEXT, IN first_name_arg TEXT, IN last_name_arg TEXT, IN email_arg TEXT)
-LANGUAGE SQL
-BEGIN ATOMIC
-    INSERT INTO table_accounts (login, password, role_id) VALUES (login_arg, password_arg, (SELECT id FROM table_roles WHERE name = role_name_arg));
-    INSERT INTO table_users (first_name, last_name, email) VALUES (first_name_arg, last_name_arg, email_arg);
-END;
+AS $$
+    BEGIN
+        IF NOT EXISTS(SELECT id FROM table_roles WHERE name = role_name_arg) THEN
+            INSERT INTO table_roles(name) VALUES (role_name_arg);
+        END IF;
 
--- CALL procedure_insert_user('admin', '12345', 'admin', 'admin', 'admin', 'adm@adm');
+        INSERT INTO table_accounts (login, password, role_id)
+                VALUES (login_arg, password_arg, (SELECT id FROM table_roles WHERE name = role_name_arg));
+        INSERT INTO table_users (first_name, last_name, email) VALUES (first_name_arg, last_name_arg, email_arg);
+    END
+$$ LANGUAGE plpgsql;
+
+ -- CALL procedure_insert_user('admin', '12345', '123', 'admin', 'admin', 'adm@adm');
 
 CREATE VIEW view_acoounts AS
 SELECT last_name, first_name,
